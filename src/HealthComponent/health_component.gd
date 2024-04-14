@@ -1,4 +1,4 @@
-@icon("./Heart.svg")
+@icon('./heart.svg')
 class_name HealthComponent
 extends Node
 
@@ -21,15 +21,16 @@ func heal(amount: float) -> void:
 	var old_health := health
 	health = min(health + amount, max_health)
 	healed.emit(health - old_health)
-	if amount != 0:
+	if old_health != health:
 		changed.emit(health)
 
 func damage(amount: float) -> void:
 	if is_dead() or amount < 0:
 		return
-	health -= amount
-	damaged.emit(amount)
-	if amount != 0:
+	var old_health := health
+	health = max(health - amount, 0.0)
+	damaged.emit(old_health - health)
+	if old_health != health:
 		changed.emit(health)
 	if is_dead():
 		died.emit()

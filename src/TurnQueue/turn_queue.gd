@@ -1,4 +1,4 @@
-@icon('./TurnQueue.svg')
+@icon('./list.svg')
 class_name TurnQueue
 extends Node
 
