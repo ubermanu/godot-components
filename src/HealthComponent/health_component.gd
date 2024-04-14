@@ -16,7 +16,7 @@ func _ready() -> void:
 	health = max_health
 
 func heal(amount: float) -> void:
-	if is_dead() or amount < 0:
+	if is_dead() or amount < 0.0:
 		return
 	var old_health := health
 	health = min(health + amount, max_health)
@@ -25,7 +25,7 @@ func heal(amount: float) -> void:
 		changed.emit(health)
 
 func damage(amount: float) -> void:
-	if is_dead() or amount < 0:
+	if is_dead() or amount < 0.0:
 		return
 	var old_health := health
 	health = max(health - amount, 0.0)
