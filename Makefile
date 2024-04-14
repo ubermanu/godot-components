@@ -8,4 +8,4 @@ build:
 	rm -rf dist/components
 
 test:
-	godot -d -s --path $(shell pwd) addons/gut/gut_cmdln.gd
+	godot --headless -d -s --path $(shell pwd) addons/gut/gut_cmdln.gd
