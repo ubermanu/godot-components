@@ -5,3 +5,4 @@
 # Godot
 .godot
 *.import
+*.uid
